@@ -1,0 +1,24 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Productos{% endblock %}
+{% block content %}
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Products</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/" alt="List of Products"><span class="glyphicon glyphicon-home"></a></li>
+                    <li><a href="/new" alt="New Product"><span class="glyphicon glyphicon-plus"></a></li>
+                </ul>
+            </div>
+        </nav>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% block page_content %} {% endblock %}
+    </div>
+{% endblock %}

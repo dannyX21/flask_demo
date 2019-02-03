@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Products Catalog{% endblock %}
+{% block page_content %}
+    <div class="col-sm-6">
+        <h1>Products</h1>
+        <table class="table table-responsive table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">id</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr class="text-center">
+                    <td><a href="/{{ product.id }}">{{ product.id }}</a></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td><a href="/{{product.id}}/edit">Edit</a> | <a href="/{{product.id}}/delete">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+   
+{% endblock %}
